@@ -1,68 +1,64 @@
-# IEEE CS Student Branch — UCB La Paz 🌐
+# 🖥️ IEEE CS Student Branch — UCB La Paz · Landing Page
 
-Landing page oficial del capítulo IEEE Computer Society, Universidad Católica Boliviana "San Pablo" — Sede La Paz.
+<div align="center">
 
----
+![IEEE Computer Society](https://img.shields.io/badge/IEEE-Computer%20Society-00d4ff?style=for-the-badge&logo=ieee&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=github&logoColor=white)
 
-## 🚀 Cómo publicar en GitHub Pages (paso a paso)
+**Landing page oficial del capítulo estudiantil IEEE Computer Society**  
+Universidad Católica Boliviana "San Pablo" — Sede La Paz, Bolivia
 
-### 1. Crear el repositorio en GitHub
+[🌐 Ver sitio en vivo](https://marck127.github.io/ieee-cs-ucblp/) · [📁 Repositorio](https://github.com/Marck127/ieee-cs-ucblp)
 
-1. Ve a [github.com](https://github.com) e inicia sesión
-2. Haz clic en **"New repository"** (botón verde)
-3. Nómbralo: `ieee-cs-ucblp` (o el nombre que prefieras)
-4. Márcalo como **Public**
-5. Haz clic en **"Create repository"**
-
----
-
-### 2. Subir el archivo `index.html`
-
-**Opción A — Desde el navegador (más fácil):**
-1. Dentro de tu nuevo repositorio, haz clic en **"uploading an existing file"**
-2. Arrastra el archivo `index.html` a la zona de carga
-3. Escribe un mensaje de commit, ej: `feat: agregar landing page inicial`
-4. Haz clic en **"Commit changes"**
-
-**Opción B — Con Git (terminal):**
-```bash
-git clone https://github.com/TU_USUARIO/ieee-cs-ucblp.git
-cd ieee-cs-ucblp
-cp /ruta/al/index.html .
-git add index.html
-git commit -m "feat: agregar landing page inicial"
-git push origin main
-```
+</div>
 
 ---
 
-### 3. Activar GitHub Pages
+## 📸 Vista previa
 
-1. En tu repositorio, ve a **Settings** (pestaña superior derecha)
-2. En el menú lateral izquierdo, haz clic en **Pages**
-3. En **"Source"**, selecciona:
-   - Branch: `main`
-   - Carpeta: `/ (root)`
-4. Haz clic en **Save**
-5. Espera 1-2 minutos y tu sitio estará disponible en:
-
-```
-https://TU_USUARIO.github.io/ieee-cs-ucblp/
-```
+> *Agrega aquí una captura de pantalla del sitio. Puedes usar [ScreenToGif](https://www.screentogif.com/) para un GIF animado o un simple screenshot.*
 
 ---
 
-## ✏️ Personalización recomendada
+## 🎯 Sobre el proyecto
 
-Abre `index.html` con cualquier editor de texto (VS Code recomendado) y actualiza:
+Sitio web promocional desarrollado para la **Feria de Capítulos UCB - IEEE Student Branch** con el objetivo de presentar el capítulo estudiantil de Computer Society de la UCB La Paz de forma moderna, interactiva y profesional — como alternativa digital a los trípticos tradicionales.
 
-| Sección | Qué cambiar |
-|--------|------------|
-| **Equipo** | Nombres y roles reales de la directiva |
-| **Estadísticas** | Números reales del capítulo |
-| **Eventos** | Fechas y eventos actuales |
-| **Contacto** | Email, Instagram, LinkedIn reales |
-| **Stats** | Años de trayectoria, miembros, proyectos |
+El diseño sigue una estética **dark / tech** inspirada en interfaces de desarrollo, con tipografía monoespaciada, efectos de grid y acentos en cian neón que refuerzan la identidad tecnológica del capítulo.
+
+---
+
+## ✨ Características
+
+- **Diseño 100% responsivo** — adaptado para móvil, tablet y escritorio
+- **Sin dependencias ni frameworks** — HTML, CSS y JS puro, carga instantánea
+- **Animaciones on-scroll** — revelado progresivo con Intersection Observer API
+- **Navegación fija con blur** — barra con efecto glassmorphism
+- **Secciones completas:**
+  - Hero con llamada a la acción
+  - Estadísticas del capítulo
+  - Sobre nosotros + beneficios de membresía
+  - Actividades y áreas de interés
+  - Agenda de próximos eventos
+  - Directiva del capítulo
+  - Formulario de contacto
+  - CTA de membresía IEEE
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+| Tecnología | Uso |
+|------------|-----|
+| HTML5 semántico | Estructura y contenido |
+| CSS3 (variables, grid, flexbox) | Diseño y layout responsivo |
+| JavaScript vanilla (ES6+) | Animaciones e interactividad |
+| Intersection Observer API | Scroll reveal sin librerías externas |
+| Google Fonts (Space Mono + Syne) | Tipografía display y monoespaciada |
+| GitHub Pages | Hosting gratuito y despliegue continuo |
 
 ---
 
@@ -70,19 +66,89 @@ Abre `index.html` con cualquier editor de texto (VS Code recomendado) y actualiz
 
 ```
 ieee-cs-ucblp/
-└── index.html       ← Página completa (una sola archivo)
-└── README.md        ← Este archivo
+│
+├── index.html          # Página completa (autocontenida)
+└── README.md           # Documentación del proyecto
 ```
 
-> La landing es un único archivo HTML autocontenido — sin dependencias externas ni frameworks. Solo necesitas subirlo y listo.
+> El proyecto es intencionalmente minimalista — un solo archivo HTML que incluye estilos y scripts, sin proceso de build, sin dependencias npm, sin configuración previa.
 
 ---
 
-## 🛠️ Herramientas recomendadas
+## 🚀 Cómo ejecutarlo localmente
 
-- [VS Code](https://code.visualstudio.com/) — editor gratuito para editar el HTML
-- [GitHub Desktop](https://desktop.github.com/) — interfaz visual para Git si prefieres no usar terminal
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/Marck127/ieee-cs-ucblp.git
+
+# 2. Entrar a la carpeta
+cd ieee-cs-ucblp
+
+# 3. Abrir en el navegador
+# Haz doble clic en index.html
+# O usa la extensión Live Server en VS Code
+```
+
+No requiere instalación de dependencias ni servidor especial.
 
 ---
 
-*IEEE Computer Society — Student Branch · UCB La Paz · Bolivia*
+## 🌐 Despliegue
+
+El sitio está publicado con **GitHub Pages** directamente desde la rama `main`.
+
+Cualquier `git push` a `main` actualiza el sitio automáticamente en:
+
+```
+https://marck127.github.io/ieee-cs-ucblp/
+```
+
+---
+
+## 🎨 Decisiones de diseño
+
+**Paleta oscura / tech**  
+Elegida para transmitir la identidad de ingeniería del capítulo, diferenciándose de los materiales institucionales tradicionales.
+
+**Tipografía dual**  
+`Syne` (display, impacto visual) + `Space Mono` (monoespaciada, acentos técnicos). La combinación refuerza el concepto de "ingenieros que construyen cosas".
+
+**Sin frameworks de CSS**  
+CSS puro con variables permite control total del diseño y evita dependencias que puedan romper el sitio en el futuro.
+
+**Un solo archivo**  
+Facilita la distribución, el mantenimiento por parte del capítulo y el despliegue en cualquier plataforma de hosting estático.
+
+---
+
+## 🔧 Personalización
+
+Para adaptar el sitio a cada ciclo académico, edita directamente en `index.html`:
+
+- **`#team`** — nombres y roles de la directiva actual
+- **`#events`** — fechas y nombres de los próximos eventos
+- **`#stats`** — número de miembros, eventos y proyectos
+- **`#contact`** — correo, redes sociales y ubicación
+
+---
+
+## 👤 Autor
+
+Desarrollado por **[Marck127](https://github.com/Marck127)**  
+Miembro — IEEE Computer Society Student Branch · UCB La Paz
+
+---
+
+## 📄 Licencia
+
+Este proyecto es de uso interno del capítulo IEEE CS UCB La Paz.  
+Puedes tomarlo como referencia o adaptarlo para tu propio capítulo estudiantil.
+
+---
+
+<div align="center">
+
+*Construido con propósito desde La Paz, Bolivia 🇧🇴*  
+**IEEE Computer Society — Student Branch · UCB "San Pablo"**
+
+</div>
