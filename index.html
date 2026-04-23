@@ -716,13 +716,91 @@
 
     .area-tag:hover { border-color: var(--cyan); color: var(--cyan); }
 
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--cyan);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      background: rgba(2,12,27,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,212,255,0.1);
+      z-index: 99;
+      padding: 1.5rem 2rem;
+      flex-direction: column;
+      gap: 0;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--text2);
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: 15px;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--cyan); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
-      .about-grid, .contact-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
-      .event-row { grid-template-columns: 60px 1fr; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+
+      #hero { padding: 7rem 0 4rem; }
+      h1.hero-title { font-size: 2rem; }
+      .hero-sub { font-size: 14px; }
+      .hero-btns { flex-direction: column; gap: 10px; }
+      .btn-primary, .btn-outline { text-align: center; padding: 13px 20px; }
+
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(0,212,255,0.08); }
+      .stat-item:nth-child(odd) { border-right: 1px solid rgba(0,212,255,0.08); }
+      .stat-item:last-child { border-bottom: none; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+
+      .activities-grid { grid-template-columns: 1fr; }
+
+      .event-row { grid-template-columns: 55px 1fr; gap: 1rem; padding: 1rem; }
       .event-tag { display: none; }
+      .event-info h4 { font-size: 13px; }
+
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .contact-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      .cta-box { padding: 2.5rem 1.5rem; }
+      .cta-box h2 { font-size: 1.5rem; }
+      div[style*="justify-content:center"] { flex-direction: column; align-items: center; }
+
+      h2.section-title { font-size: 1.6rem; }
+      section { padding: 4rem 0 !important; }
+      .container { padding: 0 1.25rem; }
     }
 
     /* ── ANIMATIONS ── */
@@ -755,7 +833,20 @@
       <li><a href="#contact">Contacto</a></li>
     </ul>
     <a href="#cta-join" class="nav-cta">Únete →</a>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MENÚ MÓVIL -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about" onclick="closeMobileMenu()">Nosotros</a>
+    <a href="#activities" onclick="closeMobileMenu()">Actividades</a>
+    <a href="#events" onclick="closeMobileMenu()">Eventos</a>
+    <a href="#team" onclick="closeMobileMenu()">Equipo</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contacto</a>
+    <a href="#cta-join" onclick="closeMobileMenu()" style="color:var(--cyan);margin-top:0.5rem;">Únete →</a>
+  </div>
 
   <!-- HERO -->
   <section id="hero">
@@ -784,7 +875,7 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item">
-          <span class="stat-num">5</span>
+          <span class="stat-num">50+</span>
           <p class="stat-label">Miembros activos</p>
         </div>
         <div class="stat-item">
@@ -792,11 +883,11 @@
           <p class="stat-label">Eventos por año</p>
         </div>
         <div class="stat-item">
-          <span class="stat-num">1</span>
+          <span class="stat-num">5</span>
           <p class="stat-label">Años de trayectoria</p>
         </div>
         <div class="stat-item">
-          <span class="stat-num">1</span>
+          <span class="stat-num">3</span>
           <p class="stat-label">Proyectos activos</p>
         </div>
       </div>
@@ -911,6 +1002,33 @@
         <span class="area-tag">Data Science</span>
         <span class="area-tag">Blockchain</span>
         <span class="area-tag">Computación Cuántica</span>
+      </div>
+
+      <!-- RULETA -->
+      <div style="margin-top:4rem;">
+        <p class="section-label">Ruleta de actividades</p>
+        <h3 style="font-size:18px;font-weight:700;color:var(--white);margin-bottom:0.5rem;">¿No sabes por dónde empezar?</h3>
+        <p style="font-size:14px;color:var(--text2);margin-bottom:2rem;">Gira la ruleta y descubre tu próxima actividad en el capítulo.</p>
+
+        <div style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
+
+          <div style="position:relative;width:280px;height:280px;">
+            <!-- Puntero -->
+            <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);z-index:10;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:22px solid var(--cyan);filter:drop-shadow(0 0 6px var(--cyan));"></div>
+            <canvas id="rulelaCanvas" width="280" height="280" style="border-radius:50%;display:block;"></canvas>
+          </div>
+
+          <button id="spinBtn" onclick="spinWheel()" style="background:var(--cyan);color:var(--navy);font-family:var(--mono);font-size:13px;font-weight:700;padding:14px 40px;border:none;border-radius:4px;cursor:pointer;letter-spacing:0.05em;transition:opacity 0.2s,transform 0.15s;">
+            ¡Girar! ⚡
+          </button>
+
+          <div id="ruletaResult" style="display:none;background:var(--navy2);border:1px solid rgba(0,212,255,0.25);border-radius:8px;padding:1.25rem 2rem;text-align:center;max-width:360px;width:100%;">
+            <p style="font-family:var(--mono);font-size:11px;color:var(--cyan);letter-spacing:0.1em;margin-bottom:6px;">// tu actividad es</p>
+            <p id="ruletaText" style="font-size:16px;font-weight:700;color:var(--white);"></p>
+            <p id="ruletaDesc" style="font-size:13px;color:var(--text2);margin-top:6px;line-height:1.6;"></p>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
@@ -1033,21 +1151,21 @@
         <div class="contact-info">
           <p>Estamos en la UCB La Paz, Bolivia. Si quieres saber más sobre el capítulo, unirte o proponer una colaboración, puedes encontrarnos aquí:</p>
           <div class="contact-links">
-            <a href="mailto:ieeecs.ucblp@gmail.com" class="contact-link">
+            <a href="mailto:csieeeucblp@gmail.com" class="contact-link">
               <span class="icon">✉</span>
-              ieeecs.ucblp@gmail.com
+              Correo : csieeeucblp@gmail.com
             </a>
-            <a href="https://instagram.com/ieeecs_ucblp" class="contact-link" target="_blank">
+            <a href="https://instagram.com/ieee_cs_ucblp" class="contact-link" target="_blank">
               <span class="icon">◈</span>
-              @ieeecs_ucblp
+              Instagram : @ieee_cs_ucblp
             </a>
-            <a href="https://linkedin.com/company/ieeecs-ucblp" class="contact-link" target="_blank">
-              <span class="icon">▣</span>
-              IEEE CS UCB La Paz
+            <a href="https://www.tiktok.com/@ieee_cs_ucblp" class="contact-link">
+              <span class="icon">🎵</span>
+              TikTok : @ieee_cs_ucblp
             </a>
-            <a href="#" class="contact-link">
-              <span class="icon">◎</span>
-              UCB La Paz — Av. 14 de Septiembre, La Paz, Bolivia
+            <a href="https://wa.me/59168163601?text=Hola%20estoy%20interesado%20en%20ser%20miembro" class="contact-link" target="_blank">
+              <span class="icon">📱</span>
+              Escríbenos por WhatsApp 
             </a>
           </div>
         </div>
@@ -1082,7 +1200,7 @@
           desde La Paz, Bolivia. El único requisito es ser estudiante universitario.
         </p>
         <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;">
-          <a href="https://forms.gle/TU_LINK_AQUI" target="_blank" class="btn-primary">
+          <a href="https://forms.gle/Nvc8JXzTBcj3JNt97" target="_blank" class="btn-primary">
             Quiero unirme — Formulario →
           </a>
           <a href="https://www.ieee.org/membership/join/index.html" target="_blank" class="btn-outline">
@@ -1090,7 +1208,7 @@
           </a>
         </div>
         <p style="font-size:12px;margin-top:1.5rem;opacity:0.5;font-family:var(--mono);">
-          * Reemplaza el enlace del formulario con tu URL de Google Forms real
+          * El pago de 2 USD/año es solo la membresía estudiantil del capítulo, no la membresía de IEEE.
         </p>
       </div>
     </div>
@@ -1110,7 +1228,21 @@
       alert('¡Mensaje enviado! Nos pondremos en contacto pronto.');
     }
 
-    // Scroll reveal sencillo
+    // ── HAMBURGER MENU ──
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+
+    function closeMobileMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+
+    // ── SCROLL REVEAL ──
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1126,6 +1258,132 @@
       el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       observer.observe(el);
     });
+
+    // ── RULETA ──
+    const segments = [
+      { label: 'Hackathon',      emoji: '⚡', color: '#0a2a4a', stroke: '#00d4ff',
+        desc: '48 horas de innovación en equipo. ¡Inscríbete en el próximo!' },
+      { label: 'Taller técnico', emoji: '🧠', color: '#0a2210', stroke: '#00ff88',
+        desc: 'Aprende IA, cloud, ciberseguridad y más en sesiones prácticas.' },
+      { label: 'Networking',     emoji: '🌐', color: '#1a1a0a', stroke: '#ffd700',
+        desc: 'Conecta con profesionales y estudiantes IEEE de todo el mundo.' },
+      { label: 'Investigación',  emoji: '🔬', color: '#1a0a1a', stroke: '#cc88ff',
+        desc: 'Únete a un proyecto con impacto real en nuestra comunidad.' },
+      { label: 'Charla / Panel', emoji: '🎤', color: '#0a1a2a', stroke: '#00aaff',
+        desc: 'Escucha a expertos del sector y haz tus preguntas.' },
+      { label: 'Competencia',    emoji: '🏆', color: '#2a0a0a', stroke: '#ff6644',
+        desc: 'Representa a Bolivia en IEEEXtreme u otras competencias internacionales.' },
+    ];
+
+    const canvas = document.getElementById('rulelaCanvas');
+    const ctx = canvas.getContext('2d');
+    const cx = 140, cy = 140, r = 132;
+    const total = segments.length;
+    const arc = (2 * Math.PI) / total;
+
+    let currentAngle = 0;
+    let spinning = false;
+
+    function drawWheel(rotation) {
+      ctx.clearRect(0, 0, 280, 280);
+      segments.forEach((seg, i) => {
+        const start = rotation + i * arc;
+        const end = start + arc;
+        const mid = start + arc / 2;
+
+        // Sector
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, r, start, end);
+        ctx.closePath();
+        ctx.fillStyle = seg.color;
+        ctx.fill();
+        ctx.strokeStyle = seg.stroke;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Emoji
+        const ex = cx + (r * 0.62) * Math.cos(mid);
+        const ey = cy + (r * 0.62) * Math.sin(mid);
+        ctx.save();
+        ctx.translate(ex, ey);
+        ctx.rotate(mid + Math.PI / 2);
+        ctx.font = '18px serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(seg.emoji, 0, 0);
+        ctx.restore();
+
+        // Label
+        const lx = cx + (r * 0.3) * Math.cos(mid);
+        const ly = cy + (r * 0.3) * Math.sin(mid);
+        ctx.save();
+        ctx.translate(lx, ly);
+        ctx.rotate(mid + Math.PI / 2);
+        ctx.font = '600 9px "Space Mono", monospace';
+        ctx.fillStyle = seg.stroke;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        const words = seg.label.split(' ');
+        words.forEach((w, wi) => ctx.fillText(w, 0, (wi - (words.length - 1) / 2) * 11));
+        ctx.restore();
+      });
+
+      // Centro
+      ctx.beginPath();
+      ctx.arc(cx, cy, 18, 0, 2 * Math.PI);
+      ctx.fillStyle = '#020c1b';
+      ctx.fill();
+      ctx.strokeStyle = '#00d4ff';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+
+    drawWheel(currentAngle);
+
+    function spinWheel() {
+      if (spinning) return;
+      spinning = true;
+      document.getElementById('ruletaResult').style.display = 'none';
+      document.getElementById('spinBtn').style.opacity = '0.5';
+
+      const extraSpins = (5 + Math.random() * 5) * 2 * Math.PI;
+      const targetAngle = currentAngle + extraSpins;
+      const duration = 3500;
+      const start = performance.now();
+      const startAngle = currentAngle;
+
+      function animate(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 4);
+        currentAngle = startAngle + (targetAngle - startAngle) * ease;
+        drawWheel(currentAngle);
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          spinning = false;
+          document.getElementById('spinBtn').style.opacity = '1';
+          showResult();
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+
+    function showResult() {
+      // El puntero está arriba (270° = -Math.PI/2)
+      const pointer = -Math.PI / 2;
+      const normalized = ((pointer - currentAngle) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
+      const index = Math.floor(normalized / arc) % total;
+      const seg = segments[index];
+
+      document.getElementById('ruletaText').textContent = seg.emoji + ' ' + seg.label;
+      document.getElementById('ruletaDesc').textContent = seg.desc;
+      const result = document.getElementById('ruletaResult');
+      result.style.display = 'block';
+      result.style.borderColor = seg.stroke;
+    }
   </script>
 
 </body>
