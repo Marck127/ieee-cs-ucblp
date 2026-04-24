@@ -875,7 +875,7 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item">
-          <span class="stat-num">50+</span>
+          <span class="stat-num">6</span>
           <p class="stat-label">Miembros activos</p>
         </div>
         <div class="stat-item">
@@ -883,11 +883,11 @@
           <p class="stat-label">Eventos por año</p>
         </div>
         <div class="stat-item">
-          <span class="stat-num">5</span>
+          <span class="stat-num">2</span>
           <p class="stat-label">Años de trayectoria</p>
         </div>
         <div class="stat-item">
-          <span class="stat-num">3</span>
+          <span class="stat-num">2</span>
           <p class="stat-label">Proyectos activos</p>
         </div>
       </div>
@@ -993,22 +993,23 @@
 
       <p class="section-label" style="margin-top: 4rem;">Áreas de interés</p>
       <div class="tags-wrap">
-        <span class="area-tag">Inteligencia Artificial</span>
-        <span class="area-tag">Ciberseguridad</span>
+        <span class="area-tag">Affective Computing</span>
+        <span class="area-tag">Artificial Intelligence</span>
         <span class="area-tag">Cloud Computing</span>
-        <span class="area-tag">Desarrollo de Software</span>
-        <span class="area-tag">Internet de las Cosas</span>
-        <span class="area-tag">Robótica</span>
-        <span class="area-tag">Data Science</span>
-        <span class="area-tag">Blockchain</span>
-        <span class="area-tag">Computación Cuántica</span>
+        <span class="area-tag">CyberSecurity</span>
+        <span class="area-tag">Healthcare Technology</span>
+        <span class="area-tag">Internet of Things</span>
+        <span class="area-tag">Microprocessors</span>
+        <span class="area-tag">Quantum Computing</span>
+        <span class="area-tag">Software Architecture</span>
+        <span class="area-tag">Virtual Reality</span>
       </div>
 
       <!-- RULETA -->
       <div style="margin-top:4rem;">
-        <p class="section-label">Ruleta de actividades</p>
-        <h3 style="font-size:18px;font-weight:700;color:var(--white);margin-bottom:0.5rem;">¿No sabes por dónde empezar?</h3>
-        <p style="font-size:14px;color:var(--text2);margin-bottom:2rem;">Gira la ruleta y descubre tu próxima actividad en el capítulo.</p>
+        <p class="section-label">RULETA SORTEADORA</p>
+        <h3 style="font-size:18px;font-weight:700;color:var(--white);margin-bottom:0.5rem;">¿Todavía no te decides?</h3>
+        <p style="font-size:14px;color:var(--text2);margin-bottom:2rem;">Gira la ruleta y gana un premio que te sorprenderá.</p>
 
         <div style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
 
@@ -1261,18 +1262,18 @@
 
     // ── RULETA ──
     const segments = [
-      { label: 'Hackathon',      emoji: '⚡', color: '#0a2a4a', stroke: '#00d4ff',
-        desc: '48 horas de innovación en equipo. ¡Inscríbete en el próximo!' },
-      { label: 'Taller técnico', emoji: '🧠', color: '#0a2210', stroke: '#00ff88',
-        desc: 'Aprende IA, cloud, ciberseguridad y más en sesiones prácticas.' },
-      { label: 'Networking',     emoji: '🌐', color: '#1a1a0a', stroke: '#ffd700',
-        desc: 'Conecta con profesionales y estudiantes IEEE de todo el mundo.' },
-      { label: 'Investigación',  emoji: '🔬', color: '#1a0a1a', stroke: '#cc88ff',
-        desc: 'Únete a un proyecto con impacto real en nuestra comunidad.' },
-      { label: 'Charla / Panel', emoji: '🎤', color: '#0a1a2a', stroke: '#00aaff',
-        desc: 'Escucha a expertos del sector y haz tus preguntas.' },
-      { label: 'Competencia',    emoji: '🏆', color: '#2a0a0a', stroke: '#ff6644',
-        desc: 'Representa a Bolivia en IEEEXtreme u otras competencias internacionales.' },
+      { label: 'Pase',      emoji: '🎟️', color: '#0a2a4a', stroke: '#00d4ff',
+        desc: 'Te ganaste un pase GRATIS a alguna actividad, ¡Inscríbete!' },
+      { label: 'Premio Sorpresa', emoji: '🎁', color: '#0a2210', stroke: '#00ff88',
+        desc: 'Tienes un premio sorpresa esperándote. ¡Disfrútalo!' },
+      { label: 'Nada',     emoji: '😞', color: '#1a1a0a', stroke: '#ffd700',
+        desc: 'Lo lamento. Suerte para la próxima vez.' },
+      { label: 'Dulce', emoji: '🍬', color: '#0a1a2a', stroke: '#00aaff',
+        desc: 'Tienes una dulce sorpresa esperándote.' },
+      { label: 'Membresía',    emoji: '🏆', color: '#2a0a0a', stroke: '#ff6644',
+        desc: 'Te ganaste una membresía estudiantil del capítulo. ¡Felicidades!' },
+      { label: 'Otro',  emoji: '🔄', color: '#1a0a1a', stroke: '#cc88ff',
+        desc: 'Tienes una nueva oportunidad de girar la ruleta y ganar un premio.' },
     ];
 
     const canvas = document.getElementById('rulelaCanvas');
